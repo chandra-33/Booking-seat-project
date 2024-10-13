@@ -1,0 +1,21 @@
+<div class="container">
+<h2>Train Seat Reservation</h2>
+
+<input type="number" #seatsInput placeholder="Enter number of seats to book" min="1" max="7">
+<button (click)="bookSeats(seatsInput.value)">Book Seats</button>
+
+<h3>Seat Layout</h3>
+<div class="coach">
+  <div class="row" *ngFor="let row of seats">
+    <div *ngFor="let seat of row" class="seat" [class.booked]="seat.isBooked">
+      {{ seat.seatNumber }}
+    </div>
+  </div>
+</div>
+
+<h3>Booked Seats</h3>
+<p *ngIf="bookedSeats.length === 0">No seats booked yet.</p>
+<ul>
+  <li *ngFor="let seat of bookedSeats">Seat {{ seat }}</li>
+</ul>
+</div>
